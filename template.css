@@ -11,8 +11,8 @@
         <h1 class="logo">Manage Materials</h1>
         <strong><nav>
           <ul class="menu">
-            <li><a href="{{ url_for('home') }}">Home</a></li>
-            <li><a href="{{ url_for('about') }}">About</a></li>
+            <li><a href="{{ url_for('manage') }}">Manage Materials</a></li>
+            <li><a href="{{ url_for('vendors') }}">Manage Vendors</a></li>
           </ul>
         </nav></strong>
       </div>
