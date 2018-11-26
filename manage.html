@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Manager Home Page</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    <h1> Manage Materials </h1>
+    <p> Enter data for materials </p>
+    
+    <form>
+    Item Code:<br>
+    <input type="text" name="Item Code:"><br>
+    Item Name:<br>
+    <input type="text" name="Item Name"><br>
+    Description:<br>
+    <input type="text" name="Description"><br>
+    Price:<br>
+    <input type="text" name="Price"><br>
+    Manufactor Date:<br>
+    <input type="text" name="Manufactor Date"><br>
+    Expire Date:<br>
+    <input type="text" name="Expire Date"><br>
+    Manufactor:<br>
+    <input type="text" name="Manufactor"><br>
+    Item Image:<br>
+    <input type="text" name="Item Image"><br>
+    Supplier:<br>
+    <input type="text" name="Supplier"><br>
+    Alternative Item:<br>
+    <input type="text" name="Alternative Item"><br>
+     
+    <input type="submit" value="Submit">
+    <input type="reset">
+        
+    </form>
+      
+    {% endblock %}
+  </body>
+</html>
+
+ 
