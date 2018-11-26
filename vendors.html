@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Manager Home Page</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+      
+    <h1> Manage Vendors </h1>
+    <p> Enter data for vendors </p>
+    
+      
+    <form>
+    Vendor Name:<br>
+    <input type="text" name="Vendor Name:"><br>
+    Item Name:<br>
+    <input type="text" name="Item Name:"><br>
+    Quantity:<br>
+    <input type="text" name="Quantity:"><br>
+    Purchase Date:<br>
+    <input type="text" name="Purchase Date:"><br>
+    Quality:<br>
+    <input type="text" name="Quality:"><br>
+    Email:<br>
+    <input type="text" name="Email"><br>
+    Phone:<br>
+    <input type="text" name="Phone:"><br>
+     
+    <input type="submit" value="Submit">
+    <input type="reset">
+        
+    </form>
+      
+    {% endblock %}
+    </body>
+</html>
