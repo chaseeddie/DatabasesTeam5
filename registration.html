@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<header>
+  <ul class="nav nav-pills">
+  <li role="presentation"><a href="#">Home</a></li>
+  <li role="presentation" class="active"><a href="127.0.0.1:5000/registration">Register New User</a></li>
+  <li role="presentation"><a href="#">Messages</a></li>
+  <li role="presentation"><a href="#">Profile</a></li>
+</ul>
+</header>
+<!Doctype html>
+<html>
+<head>
+     <meta charset="UTF-8">
+     <title>Registration Form</title>
+     	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+ <div class="container">
+ <!---heading---->
+     <header class="heading"> <b>Register a New User</b> </header><hr></hr>
+	<!---Form starting---->
+	<div class="row ">
+	 <!--- For Name---->
+         <div class="col-sm-12">
+             <div class="row">
+			     <div class="col-xs-4">
+          	         <label class="firstname">Username :</label> </div>
+		         <div class="col-xs-8">
+		             <input type="text" placeholder="Enter Username" name="reg_user" value="{{
+          			 request.form.reg_user }}">
+             </div>
+		      </div>
+		 </div>
+
+
+         <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+                     <label class="lastname">Password :</label></div>
+				<div class ="col-xs-8">
+					 <input type="text" placeholder="Enter Password" name="reg_pass" value="{{
+          			 request.form.reg_password }}">
+                </div>
+		     </div>
+		 </div>
+     <!-----For email---->
+		 <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="mail" >Email :</label></div>
+			     <div class="col-xs-8"	>
+			          <input type="text" placeholder="Enter Password" name="reg_pass" value="{{
+          			 request.form.reg_password }}">
+		         </div>
+		     </div>
+		 </div>
+	 <!-----For Password and confirm password---->
+          <div class="col-sm-12">
+		         <div class="row">
+				     <div class="col-xs-4">
+		 	              <label class="role">Role :</label></div>
+				  <div class="col-xs-8">
+			             <input type="text" placeholder="Enter Role" name="reg_role" value="{{
+          			 request.form.role }}">
+				 </div>
+              </div>
+		  </div>
+
+        <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="fname" >First Name :</label></div>
+			     <div class="col-xs-8"	>
+			          <input type="text" placeholder="Enter First Name" name="reg_firstname" value="{{
+          			 request.form.reg_firstname }}">
+		         </div>
+		     </div>
+		 </div>
+
+        <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="lname" >Last Name :</label></div>
+			     <div class="col-xs-8"	>
+			          <input type="text" placeholder="Enter Last Name" name="reg_lastname" value="{{
+          			 request.form.reg_lastname }}">
+		         </div>
+		     </div>
+		 </div>
+
+        <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="email" >Email :</label></div>
+			     <div class="col-xs-8"	>
+			          <input type="text" placeholder="Enter Email Address" name="reg_email" value="{{
+          			 request.form.reg_email }}">
+		         </div>
+		     </div>
+		 </div>
+
+        <div class="col-sm-12">
+		     <div class="row">
+			     <div class="col-xs-4">
+		             <label class="ephone" >Phone # :</label></div>
+			     <div class="col-xs-8"	>
+			          <input type="text" placeholder="xxx-xxx-xxxx" name="reg_phone" value="{{
+          			 request.form.reg_phone }}">
+		         </div>
+		     </div>
+		 </div>
+
+     <!-----------For Phone number-------->
+         <div class="col-sm-12">
+		     <div class ="row">
+                 <div class="col-xs-4 ">
+			       <label class="gender">Gender:</label>
+				 </div>
+
+			     <div class="col-xs-4 ">
+				     <input type="radio" name="gender"  id="gender" value="boy">Male</input>
+				     <input type="radio"  name="gender" id="gender" value="girl" >Female</input>
+					 <input type="radio" name="gender"  id="gender" value="prefer">Other</input>
+
+		  	 </div>
+		     <div class="col-sm-12">
+		         <input class="btn btn-default" type="submit" value="Submit">
+		   </div>
+		 </div>
+	 </div>
+
+
+</div>
+
+</body>
+</html>
