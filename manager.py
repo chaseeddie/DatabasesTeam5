@@ -4,6 +4,8 @@ app = Flask(__name__)
 
 db = pymysql.connect(host='localhost', user='root', password='password', db='version1')
 
+cursor = db.cursor()
+
 cursor.execute('CREATE TABLE IF NOT EXISTS Materials (itemCode TEXT, itemName TEXT, description TEXT, price TEXT, manufacDate TEXT, expireDate TEXT, manufactorer TEXT, image TEXT, supplier TEXT, altItem TEXT)')
 print('table created')
 
