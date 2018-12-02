@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 
-<html lang="en" dir="ltr">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<header>
+
+<ul class="nav nav-pills">
+  <li role="presentation"><a href="#">Manage Materials</a></li>
+  <li role="presentation"><a href="#">Vendors</a></li>
+  <li role="presentation" class="active"><a href="#">Materials Request</a></li>
+</ul>
+</header>
+
+
+
+<html>
   <head>
-    <meta charset="utf-8">
-    <title>Manager Home Page</title>
-    
+    <title>Materials Request</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
-    {% extends "template.html" %}
-    {% block content %}
+    <div class="container">
+      <br>
+      <h2>Materials Request</h2>
+      <br>
           
-    <h3> Material Request </h3>
-    <p> Enter data for materials </p>
-    
+    <h3>Enter data for materials</h3> 
       
     <form action = "{{ url_for('manage') }}" method = "POST">
     Item Code:<br>
@@ -37,6 +50,6 @@
         
     </form>
       
-    {% endblock %}
+      </div>
     </body>
 </html>
