@@ -40,8 +40,8 @@ def manage():
 def vendors():
     return render_template('vendors.html')
 
-@app.route('/request')
-def request():
+@app.route('/materialrequest')
+def materialrequest():
     return render_template('request.html')
 
 if __name__ == "__main__":
