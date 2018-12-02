@@ -1,24 +1,45 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, request
 from pymysql import cursors
 import pymysql
 
 app = Flask(__name__)
 
-db = pymysql.connect(host='localhost', user='root', password='password', db='version1')
+#connect to your database with your own password, etc.
+conn = pymysql.connect(host='localhost', user='root', password='password', db='version1')
 
-cursor = db.cursor()
+cursor = conn.cursor()
 
-@app.route("/")
+cursor.execute
+
+@app.route('/', methods = ['POST','GET'])
 def manage():
-    return render_template("manage.html")
+    if request.method == 'POST':
+        itemCode = request.form['itemCode']
+        itemName = request.form['itemName']
+        description = request.form['description']
+        price = request.form['price']
+        manufacDate = request.form['manufacDate']
+        expireDate = request.form['expireDate']
+        manufactor = request.form['manufactor']
+        supplier = request.form['supplier']
+ 
+        cursor.execute(
+            """INSERT INTO Materials (itemCode, itemName, description, price, manufacDate, expireDate, manufactorer, supplier)
+            VALUES (%s, %s, %s ,%s ,%s ,%s ,%s ,%s)"""
+            (itemCode, itemName, description, price, manufacDate, expireDate, manufactor, supplier)           
+        )
+        
+        #save changes
+        conn.commit()
+         
+    return render_template('manage.html')
 
-@app.route("/vendors")
+
+@app.route('/vendors')
 def vendors():
-    return render_template("vendors.html")
-
-@app.route("/request")
-def request():
-    return render_template("request.html")
+    return render_template('vendors.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
+    
+conn = close()
