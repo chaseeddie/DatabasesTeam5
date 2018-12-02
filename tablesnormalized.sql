@@ -37,8 +37,10 @@ CREATE TABLE Vendors (
     VendorID INT NOT NULL AUTO_INCREMENT,
     VenName VARCHAR(45) NOT NULL,
     MinOrdQuantity INT NOT NULL,
+    DatePurchased DATE NOT NULL,
+    ItemsPurchased INT NOT NULL,
     Quality VARCHAR(45) NOT NULL,
-    Email Address VARCHAR(45) NOT NULL,
+    EmailAddress VARCHAR(45) NOT NULL,
     Phonenum INT(10)NOT NULL,
     PRIMARY KEY (VENDERID)
 );
