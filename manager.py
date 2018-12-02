@@ -36,11 +36,11 @@ def manage():
     return render_template('manage.html')
 
 
-@app.route('/manageVendors')
+@app.route('/vendors')
 def manageVendors():
     return render_template('vendors.html')
 
-@app.route('/materialRequest')
+@app.route('/request')
 def materialRequest():
     return render_template('request.html')
 
