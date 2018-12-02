@@ -1,44 +1,58 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<header>
+
+<ul class="nav nav-pills">
+  <li role="presentation" class="active"><a href="#">Manage Materials</a></li>
+  <li role="presentation"><a href="#">Vendors</a></li>
+  <li role="presentation"><a href="#">Materials Request</a></li>
+</ul>
+</header>
+
+
+
+<html>
   <head>
-    <meta charset="utf-8">
-    <title>Manager Home Page</title>
+    <title>Manage Materials</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
-    {% extends "template.html" %}
-    {% block content %}
-          
-    <h1> Manage Materials </h1>
-    <p> Enter data for materials </p>
+    <div class="container">
+      <br>
+      <h2>Manage Materials</h2>
+      <br>
+        
+    <h3> Enter data for materials </h3>
     
-      
-    <form>
+    <form action = "{{ url_for('manage') }}" method = "POST">
     Item Code:<br>
-    <input type="text" name="Item Code:"><br>
+    <input type="text" name="Item Code:" value="{{request.form.itemCode}}"><br>
     Item Name:<br>
-    <input type="text" name="Item Name"><br>
+    <input type="text" name="Item Name" value="{{request.form.itemName}}"><br>
     Description:<br>
-    <input type="text" name="Description"><br>
+    <input type="text" name="Description" value="{{request.form.description}}"><br>
     Price:<br>
-    <input type="text" name="Price"><br>
+    <input type="text" name="Price" value="{{request.form.price}}"><br>
     Manufactor Date:<br>
-    <input type="text" name="Manufactor Date"><br>
+    <input type="text" name="Manufactor Date" value="{{request.form.manufacDate}}"><br>
     Expire Date:<br>
-    <input type="text" name="Expire Date"><br>
+    <input type="text" name="Expire Date" value="{{request.form.expireDate}}"><br>
     Manufactor:<br>
-    <input type="text" name="Manufactor"><br>
+    <input type="text" name="Manufactor" value="{{request.form.manufactor}}"><br>
     Supplier:<br>
-    <input type="text" name="Supplier"><br>
+    <input type="text" name="Supplier" value="{{request.form.supplier}}"><br>
      
     <input type="submit" value="Submit">
     <input type="reset">
         
     </form>
       
-    {% endblock %}
+      </div>
     </body>
 </html>
-
  
 
  
