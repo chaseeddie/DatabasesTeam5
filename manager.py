@@ -14,19 +14,20 @@ cursor.execute
 @app.route('/', methods = ['POST','GET'])
 def manage():
     if request.method == 'POST':
-        itemCode = request.form['itemCode']
+        itemID = request.form['itemID']
         itemName = request.form['itemName']
+        quantity = request.form['quantity']
         description = request.form['description']
         price = request.form['price']
+        manufactor = request.form['manufactor']
         manufacDate = request.form['manufacDate']
         expireDate = request.form['expireDate']
-        manufactor = request.form['manufactor']
-        supplier = request.form['supplier']
+        itemImage = request.form['itemImage']
  
         cursor.execute(
-            """INSERT INTO Items (itemCode, itemName, description, price, manufacDate, expireDate, manufactorer, supplier)
-            VALUES (%s, %s, %s ,%s ,%s ,%s ,%s ,%s)"""
-            (itemCode, itemName, description, price, manufacDate, expireDate, manufactor, supplier)           
+            """INSERT INTO Items (ItemID, ItemName, Quantity, itemDesc, Price, Manufactorer, ManufacDate, ExpireDate, ItemImage)
+            VALUES (%s, %s, %s ,%s ,%s ,%s ,%s ,%s, %s)"""
+            (itemID, itemName, description, price, manufacDate, expireDate, manufactor, supplier)           
         )
         
         #save changes
