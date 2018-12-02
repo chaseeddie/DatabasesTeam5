@@ -86,14 +86,17 @@ CREATE TABLE MaterialRequests (
 );
 CREATE TABLE Items (
     ItemID INT NOT NULL AUTO_INCREMENT,
+    ItemCode INT NOT NULL,
     ItemName VARCHAR(45),
     Quantity INT NOT NULL,
     itemDesc VARCHAR(45)NULL,
     Price INT NOT NULL,
-    Manufacturer VARCHAR(45) NOT NULL,
     ManufacDate VARCHAR(45) NOT NULL,
     ExpireDate date NOT NULL
-    ItemImage VARCHAR(45) NULL
+    Manufacturer VARCHAR(45) NOT NULL,
+    ItemImage VARCHAR(45) NULL,
+    Supplier VARCHAR(45) NULL,
+    Alternative Item VARCHAR(45) NULL,
     PRIMARY KEY (ItemID),
     FOREIGN KEY (SupplierID),
     FOREIGN KEY (UserID)
@@ -104,5 +107,5 @@ CREATE TABLE Supplier(
     Name VARCHAR(45)NOT NULL,
 	--AltItemShould be  Checkmark
     Alt Item VARCHAR(45)NULL,
-    PRIMRY KEY (SupplierID(
+    PRIMARY KEY (SupplierID(
     )
