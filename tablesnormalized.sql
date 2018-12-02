@@ -35,6 +35,7 @@ CREATE TABLE Managers
 );
 CREATE TABLE Vendors (
     VendorID INT NOT NULL AUTO_INCREMENT,
+    VenName VARCHAR(45) NOT NULL,
     MinOrdQuantity INT NOT NULL,
     Quality VARCHAR(45) NOT NULL,
     Email Address VARCHAR(45) NOT NULL,
