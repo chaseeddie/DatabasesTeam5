@@ -12,7 +12,7 @@ cursor = conn.cursor()
 cursor.execute
 
 @app.route('/', methods = ['POST','GET'])
-def manageitems():
+def manageItems():
     if request.method == 'POST':
         itemID = request.form['itemID']
         itemName = request.form['itemName']
@@ -37,11 +37,11 @@ def manageitems():
 
 
 @app.route('/managevendors')
-def managevendors():
+def manageVendors():
     return render_template('vendors.html')
 
 @app.route('/materialrequest')
-def materialrequest():
+def materialRequest():
     return render_template('request.html')
 
 if __name__ == "__main__":
