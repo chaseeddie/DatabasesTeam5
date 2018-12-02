@@ -36,8 +36,8 @@ def manage():
     return render_template('manage.html')
 
 
-@app.route('/vendors')
-def vendors():
+@app.route('/managevendors')
+def managevendors():
     return render_template('vendors.html')
 
 @app.route('/materialrequest')
