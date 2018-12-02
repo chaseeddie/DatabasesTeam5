@@ -6,7 +6,7 @@
 
 <ul class="nav nav-pills">
   <li role="presentation"><a href="manage.html">Manage Materials</a></li>
-  <li role="presentation" class="active"><a href="vendors.html">Manage Vendors</a></li>
+  <li role="presentation" class="active"><a href="vendors.html">Vendors</a></li>
   <li role="presentation"><a href="request.html">Materials Request</a></li>
 </ul>
 </header>
@@ -28,22 +28,23 @@
       
     <form>
     Vendor Name:<br>
-    <input type="text" name="Vendor Name:"><br>
-    Item Name:<br>
-    <input type="text" name="Item Name:"><br>
+      <input type="text" placeholder="venName" name="venName" value="{{
+          request.form.venName }}">
     Quantity:<br>
-    <input type="text" name="Quantity:"><br>
+      <input type="text" placeholder="minorquantity" name="minorquantity" value="{{
+    request.form.minorquantity }}">
     Purchase Date:<br>
-    <input type="text" name="Purchase Date:"><br>
+      <input type="text" name="Purchase Date:"><br>
     Quality:<br>
-    <input type="text" name="Quality:"><br>
-    Email:<br>
-    <input type="text" name="Email"><br>
-    Phone:<br>
-    <input type="text" name="Phone:"><br>
-     
-    <input type="submit" value="Submit">
-    <input type="reset">
+      <input type="text" placeholder="quality" name="quality" value="{{
+    request.form.quality }}">
+    Emailaddress:<br>
+      <input type="text" placeholder="emailaddress" name="emailaddress" value="{{
+     request.form.emailaddress }}">
+      Phonenum:<br>
+       <input type="text" placeholder="phonenum" name="phonenum" value="{{
+      request.form.phonenum }}">
+
         
     </form>
 
