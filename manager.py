@@ -40,6 +40,10 @@ def manage():
 def vendors():
     return render_template('vendors.html')
 
+@app.route('/request')
+def request():
+    return render_template('request.html')
+
 if __name__ == "__main__":
     app.run(debug=True)
     
