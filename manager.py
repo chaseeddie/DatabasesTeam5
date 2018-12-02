@@ -24,7 +24,7 @@ def manage():
         supplier = request.form['supplier']
  
         cursor.execute(
-            """INSERT INTO Materials (itemCode, itemName, description, price, manufacDate, expireDate, manufactorer, supplier)
+            """INSERT INTO Items (itemCode, itemName, description, price, manufacDate, expireDate, manufactorer, supplier)
             VALUES (%s, %s, %s ,%s ,%s ,%s ,%s ,%s)"""
             (itemCode, itemName, description, price, manufacDate, expireDate, manufactor, supplier)           
         )
