@@ -12,7 +12,7 @@ cursor = conn.cursor()
 cursor.execute
 
 @app.route('/', methods = ['POST','GET'])
-def manageItems():
+def manage():
     if request.method == 'POST':
         itemID = request.form['itemID']
         itemName = request.form['itemName']
