@@ -1,15 +1,29 @@
 <!DOCTYPE html>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<header>
+
+<ul class="nav nav-pills">
+  <li role="presentation"><a href="#">Manage Materials</a></li>
+  <li role="presentation" class="active"><a href="#">Vendors</a></li>
+  <li role="presentation"><a href="#">Materials Request</a></li>
+</ul>
+</header>
+
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title>Manager Home Page</title>
+    <title>Manager</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
   </head>
   <body>
-    {% extends "template.html" %}
-    {% block content %}
-      
-    <h1> Manage Vendors </h1>
-    <p> Enter data for vendors </p>
+    <div class="container">
+      <br>
+      <h2>Manager</h2>
+      <br>
+   
+    <h3>Enter data for Vendors </h3>
     
       
     <form>
@@ -32,7 +46,7 @@
     <input type="reset">
         
     </form>
-      
-    {% endblock %}
+
+      </div>
     </body>
 </html>
