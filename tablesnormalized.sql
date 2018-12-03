@@ -47,7 +47,6 @@ CREATE TABLE Vendors (
 CREATE TABLE PurchaseOrder (
     PurchID INT NOT NULL AUTO_INCREMENT,
     PurchQuantity INT NOT NULL,
-    PurchAmount INT NOT NULL,
     ShippingAddress VARCHAR(45),
     Payment VARCHAR(45),
     PhoneNum INT NOT NULL,
