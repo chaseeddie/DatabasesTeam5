@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 #  DATABASE CONFIG #
 
-conn = pymysql.connect(host='localhost', user='root', password='password', db='version1')
+conn = pymysql.connect(host='localhost', user='root', password='root', db='version1')
 
 cursor = conn.cursor()
 
