@@ -88,7 +88,12 @@ def manager_home():
 
 @app.route('/manage_vendor', methods=['GET', 'POST'])
 def manage_vendor():
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM vendors')
+    vendor_data = cursor.fetchall()
+
     if request.method == 'POST':
+
 
         venName = request.form['venName']
         minorquantity = request.form['minOrdQuantity']
@@ -108,7 +113,7 @@ def manage_vendor():
         conn.commit()
 
         return render_template('manage_vendor.html')
-    return render_template('manage_vendor.html')
+    return render_template('manage_vendor.html', data=vendor_data)
 
 
 
@@ -128,6 +133,10 @@ def admin_home():
 
 @app.route('/shipping_details', methods = ['GET','POST'])
 def shipping_details():
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM shippingdetails')
+    shipping_data = cursor.fetchall()
+
     if request.method == 'POST':
         shipAddress = request.form['shipAddress']
         contactEmail = request.form['contactEmail']
@@ -143,11 +152,15 @@ def shipping_details():
 
         return redirect(url_for('shipping_details'))
 
-    return render_template('admin_shipping_details.html')
+    return render_template('admin_shipping_details.html', data=shipping_data)
 
 
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM user_info')
+    user_data = cursor.fetchall()
+
     if request.method == 'POST':
         r_username = request.form['reg_username']
         r_password = request.form['reg_password']
@@ -165,8 +178,9 @@ def registration():
         conn.commit()
 
         return redirect(url_for('registration'))
-    return render_template('registration.html')
+    return render_template('registration.html', data=user_data)
 
 
 if __name__ == "__main__":
     app.run(debug=True)
+
