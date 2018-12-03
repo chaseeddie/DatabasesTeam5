@@ -36,11 +36,10 @@ th, td {
    
     <h3>Enter values to purchase order </h3>
     
+      
     <form>
-    <input type="text" placeholder="Search Quantity.." name="PurchID" value="{{
-    request.form.PurchQuantity }}">
-    <input type="submit" value="Go">
-    <br>
+    <input type="text" placeholder="Enter ID to Search Quantity.." name="PurchSearch" value="{{
+    request.form.PurchSearch }}">
     <input type="submit" value="Go">
     <br>
         
@@ -63,8 +62,8 @@ th, td {
        <input type="text" placeholder="SupplierID_1" name="SupplierID_1" value="{{
       request.form.SupplierID_1}}"><br>
     Email Address:<br>
-       <input type="text" placeholder="Email Address:" name="Email Address:" value="{{
-      request.form.Email Address}}"><br>
+       <input type="text" placeholder="EmailAddress:" name="EmailAddress:" value="{{
+      request.form.EmailAddress}}"><br>
         
     <input type="submit" value="Submit">
     <input type="reset">
