@@ -9,7 +9,7 @@ conn = pymysql.connect(host='localhost', user='root', password='root', db='versi
 
 cursor = conn.cursor()
 
-cursor.execute('SELECT * FROM PurchaseOrder WHERE PurchQuantity = %s GROUP BY PurchID')
+cursor.execute('SELECT PurchID, PurchaseQuantity FROM PurchaseOrder WHERE PurchID = %s GROUP BY PurchID')
 quantity_data = cursor.fetchall()
 
 conn.commit()
