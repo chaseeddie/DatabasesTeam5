@@ -35,15 +35,6 @@ def manage():
          
     return render_template('manage.html')
 
-
-@app.route('/vendors')
-def manageVendors():
-    return render_template('vendors.html')
-
-@app.route('/request')
-def materialRequest():
-    return render_template('request.html')
-
 if __name__ == "__main__":
     app.run(debug=True)
     
