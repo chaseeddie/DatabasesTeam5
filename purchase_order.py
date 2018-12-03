@@ -5,29 +5,32 @@ app = Flask(__name__)
 
 #  DATABASE CONFIG #
 
-conn = pymysql.connect(host='localhost', user='root', password='root', db='version1')
+conn = pymysql.connect(host='localhost', user='root', password='password', db='version1')
 
 cursor = conn.cursor()
 
-cursor.execute('SELECT PurchID, PurchaseQuantity FROM PurchaseOrder WHERE PurchID = %s GROUP BY PurchID')
-quantity_data = cursor.fetchall()
-
-conn.commit()
 
 @app.route('/purchase_order', methods = ['GET', 'POST'])
 def purchase_order():
     if request.method == 'POST':
+        PurchSearch = request.form['PurchSearch']
+        cursor.execute('SELECT PurchID, PurchaseQuantity FROM PurchaseOrder WHERE PurchID = %s GROUP BY PurchID',(PurchSearch))
+
+        quantity_data = cursor.fetchall()
+
+        conn.commit()
+
         PurchID = request.form['PurchID']
         PurchQuantity = request.form['PurchQuantity']
         ShippingAddress = request.form['ShippingAddress']
         Payment = request.form['Payment']
         PhoneNum = request.form['PhoneNum']
         SupplierID_1 = request.form['SupplierID_1']
-        Email Address = request.form['Email Address']
+        EmailAddress = request.form['EmailAddress']
         cursor.execute(
-            """INSERT INTO PurchaseOrder(PurchID, PurchQuantity, PurchAmount, ShippingAddress, Payment, PhoneNum, SupplierID_1, Email Address)
+            """INSERT INTO PurchaseOrder(PurchID, PurchQuantity, PurchAmount, ShippingAddress, Payment, PhoneNum, SupplierID_1, EmailAddress)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""",
-            (PurchID, PurchQuantity, PurchAmount, ShippingAddress, Payment, PhoneNum, SupplierID_1, Email Address)
+            (PurchID, PurchQuantity, PurchAmount, ShippingAddress, Payment, PhoneNum, SupplierID_1, EmailAddress)
         )
         #save data
         conn.commit()
@@ -36,3 +39,4 @@ def purchase_order():
     
 if __name__ == "__main__":
     app.run(debug=True)
+
