@@ -36,6 +36,14 @@ def purchase_order():
         conn.commit()
     
     return render_template('purchase_order.html')
+
+@app.route('/order_receipt')
+def order_receipt():
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM OrderReceipt')
+    receipt_data = cursor.fetchall()
+
+    return render_template('order_receipt.html', data=receipt_data)
     
 if __name__ == "__main__":
     app.run(debug=True)
