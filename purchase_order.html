@@ -36,9 +36,11 @@ th, td {
    
     <h3>Enter values to purchase order </h3>
     
-      
     <form>
-    <input type="text" placeholder="Search Quantity..">
+    <input type="text" placeholder="Search Quantity.." name="PurchID" value="{{
+    request.form.PurchQuantity }}">
+    <input type="submit" value="Go">
+    <br>
     <input type="submit" value="Go">
     <br>
         
