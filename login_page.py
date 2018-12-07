@@ -57,10 +57,16 @@ def login():
 
 @app.route('/vendor_home', methods=['GET', 'POST'])
 def vendor_home():
-    return render_template('home_vendor.html')
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM material_request')
+    floor_data = cursor.fetchall()
+    return render_template('home_vendor.html', data=floor_data)
 
 @app.route('/manage_materials', methods=['GET', 'POST'])
 def manage_materials():
+    cursor = conn.cursor()
+    cursor.execute('SELECT * FROM items')
+    item_data = cursor.fetchall()
     if request.method == 'POST':
         itemCode = request.form['itemCode']
         itemName = request.form['itemName']
@@ -80,16 +86,41 @@ def manage_materials():
         )
         conn.commit()
         return render_template('manage_materials.html')
-    return render_template('manage_materials.html')
+    return render_template('manage_materials.html', data=item_data)
 
 @app.route('/manager_home', methods=['GET', 'POST'])
 def manager_home():
     return render_template('home_manager.html')
 
+@app.route('/manage_request', methods=['GET','POST'])
+def manage_request():
+    cursor = conn.cursor()
+    cursor.execute('call version1.MR_fetch();')
+    floor_data = cursor.fetchall()
+    if request.method == 'POST':
+        itemCode = request.form['itemCode']
+        itemName = request.form['itemName']
+        itemDescription = request.form['itemDescription']
+        itemSupplier = request.form['itemSupplier']
+        itemDelivery = request.form['deliverySchedule']
+        orderQuantity = request.form['orderQuantity']
+
+        cursor.execute(
+            """INSERT INTO material_request(itemCode, itemName, itemDescription, itemSupplier, 
+            itemDelivery, orderQuantity)
+            VALUES (%s, %s, %s, %s, %s, %s)""",
+            (itemCode, itemName, itemDescription, itemSupplier, itemDelivery,
+             orderQuantity)
+        )
+
+        conn.commit()
+
+    return render_template('manage_request.html', data=floor_data)
+
 @app.route('/manage_vendor', methods=['GET', 'POST'])
 def manage_vendor():
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM vendors')
+    cursor.execute('call version1.vendor_fetch();')
     vendor_data = cursor.fetchall()
 
     if request.method == 'POST':
@@ -116,11 +147,38 @@ def manage_vendor():
     return render_template('manage_vendor.html', data=vendor_data)
 
 
+@app.route('/purchase_order', methods=['GET', 'POST'])
+def purchase_order():
+    #purchSearch = request.form['PurchSearch']
+    #search_execute = cursor.execute('SELECT PurchID, PurchaseQuantity FROM PurchaseOrder WHERE PurchID = %s '
+    #                                'GROUP BY PurchID', purchSearch)
+
+    #quantity_data = cursor.fetchall()
+    #conn.commit()
+    if request.method == 'POST':
+
+        PurchID = request.form['PurchID']
+        PurchQuantity = request.form['PurchQuantity']
+        ShippingAddress = request.form['ShippingAddress']
+        Payment = request.form['Payment']
+        PhoneNum = request.form['PhoneNum']
+        SupplierID = request.form['SupplierID_1']
+        EmailAddress = request.form['EmailAddress']
+        cursor.execute(
+            """INSERT INTO PurchaseOrder(PurchID, PurchQuantity, PurchAmount, ShippingAddress, Payment, PhoneNum, SupplierID, EmailAddress)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)""",
+            (PurchID, PurchQuantity, ShippingAddress, Payment, PhoneNum, SupplierID, EmailAddress)
+        )
+        # save data
+        conn.commit()
+
+    return render_template('manage_purch_order.html')
+
 
 @app.route('/floor_home')
 def floor_home():
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM user_info')
+    cursor.execute('call version1.MR_fetch();')
     floor_data = cursor.fetchall()
 
     return render_template('home_shopfloor.html', data=floor_data)
@@ -134,7 +192,7 @@ def admin_home():
 @app.route('/shipping_details', methods = ['GET','POST'])
 def shipping_details():
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM shippingdetails')
+    cursor.execute('call version1.SD_fetch();')
     shipping_data = cursor.fetchall()
 
     if request.method == 'POST':
@@ -158,7 +216,7 @@ def shipping_details():
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
     cursor = conn.cursor()
-    cursor.execute('SELECT * FROM user_info')
+    cursor.execute('call version1.user_fetch();')
     user_data = cursor.fetchall()
 
     if request.method == 'POST':
